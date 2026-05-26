@@ -83,15 +83,26 @@ export default function Hero() {
               aria-hidden="true"
             />
             <div className="absolute -bottom-4 -left-4 z-10 h-16 w-16 bg-accent/10" aria-hidden="true" />
-            <Image
-              src={images.heroPortrait}
-              alt="Prince Jeremiah Isa El-Buba"
-              width={640}
-              height={800}
-              priority
-              className="relative z-[1] h-auto w-full object-contain grayscale-[20%]"
-              sizes="(max-width: 1024px) 100vw, 520px"
-            />
+            <div className="relative z-[1] grid grid-cols-2 gap-3 sm:gap-4">
+              <Image
+                src={images.heroPortrait}
+                alt="Prince Jeremiah Isa El-Buba"
+                width={320}
+                height={400}
+                priority
+                className="h-auto w-full object-contain grayscale-[20%]"
+                sizes="(max-width: 1024px) 45vw, 260px"
+              />
+              <Image
+                src={images.heroPortraitSecondary}
+                alt="Jeremiah Isa El-Buba"
+                width={320}
+                height={400}
+                priority
+                className="h-auto w-full object-contain grayscale-[20%]"
+                sizes="(max-width: 1024px) 45vw, 260px"
+              />
+            </div>
           </div>
         </motion.div>
       </div>

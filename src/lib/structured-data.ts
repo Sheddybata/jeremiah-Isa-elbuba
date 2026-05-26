@@ -15,7 +15,7 @@ export function getStructuredData() {
     ],
     url: siteConfig.domain,
     email: siteConfig.email,
-    jobTitle: "Social Media Manager",
+    jobTitle: "Administrator & Youth Leader",
     description: siteConfig.description,
     image: `${siteConfig.domain}${siteConfig.logo}`,
     sameAs: [
@@ -89,10 +89,11 @@ export function getSeoKeywords() {
     "Jerry El-Buba",
     "Prince Jeremiah Isa El-Buba",
     "jeremiahelbuba.me",
-    "Jeremiah Isa El-Buba social media",
+    "Jeremiah Isa El-Buba administrator",
     "EBOMI",
+    "EBOMI Next Generation Network",
     "Prophet Isa El-Buba son",
-    "social media manager Nigeria",
+    "youth leader Nigeria",
     "Called for It but Late to the Conversation",
     "Jos Nigeria",
   ];

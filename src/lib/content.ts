@@ -9,9 +9,9 @@ export const siteConfig = {
   logo: "/logo.png",
   email: "jeremiahisaelbuba@gmail.com",
   ebomiUrl: "https://www.ebomi.org/",
-  tagline: "Social Media Manager. Believer. Storyteller.",
+  tagline: "Leader. Administrator. Kingdom Visionary.",
   description:
-    "Official website of Prince Jeremiah Isa El-Buba (Jerry Isa El-Buba, Jerry El-Buba) — social media manager, author, and believer. Son of Prophet Isa El-Buba, rooted in EBOMI legacy in Jos, Nigeria.",
+    "Official website of Prince Jeremiah Isa El-Buba (Jerry Isa El-Buba, Jerry El-Buba) — young Nigerian leader, administrator, and author passionate about youth development, humanitarian impact, and kingdom advancement through EBOMI.",
 };
 
 export const navLinks = [
@@ -24,48 +24,49 @@ export const navLinks = [
 
 // Portrait photos in /public
 export const images = {
-  heroPortrait: "/jerryisa.jpg",
+  heroPortrait: "/jay2.jpeg",
+  heroPortraitSecondary: "/jey.jpeg",
   aboutPortrait: "/jerry.jpg",
   aboutPortraitSecondary: "/jerry2.jpg",
   aboutPortraitBeside: "/538725244_749977361143320_6380781666643499770_n.jpg",
 };
 
 export const aboutContent = {
-  // SWAP: Personalize this bio with your own voice and details
   bio: [
-    "I'm Prince Jeremiah Isa El-Buba — a social media manager who believes every brand has a story worth telling well. From strategy to execution, I help voices find clarity, consistency, and connection in a crowded digital world.",
-    "I am the son of Prophet Isa El-Buba, founder of El-Buba Outreach Ministries International (EBOMI) in Jos, Nigeria. That legacy shaped how I see purpose: work with excellence, lead with humility, and never separate calling from craft.",
-    "Faith isn't a footnote in my life — it's the foundation. I bring the same intentionality to content calendars that I bring to my walk with God: thoughtful, honest, and always pointing toward something greater than the moment.",
+    "Jeremiah Isa El-Buba is a young Nigerian leader, administrator, and purpose-driven visionary passionate about youth development, humanitarian impact, leadership, and kingdom advancement. He currently serves in various administrative and operational capacities within the ministry and humanitarian structures connected to Prophet Dr. Isa El-Buba, contributing to strategic coordination, logistics, media initiatives, and outreach operations both within and outside Nigeria.",
+    "Born with a strong passion for service, leadership, and societal transformation, Jeremiah has been actively involved in projects focused on humanitarian support, youth mobilization, organizational development, and media engagement. He is known for his dedication to excellence, loyalty to vision, and commitment to personal growth and leadership development under mentorship and spiritual guidance.",
+    "Jeremiah is also actively involved in the EBOMI Next Generation Network (ENGN), a movement focused on raising and empowering young people spiritually, mentally, and socially to become responsible leaders and change agents in society. Through this platform and other initiatives, he continues to contribute to programs centered on revival, youth empowerment, social impact, and community transformation.",
+    "Academically, he is pursuing a degree in Computer Science at Redeemer's University, Ede, Osun State, Nigeria, with interests spanning technology, administration, communication, media strategy, and organizational leadership.",
+    "With a growing burden for national transformation and kingdom impact, Jeremiah Isa El-Buba remains committed to building systems, supporting vision, raising people, and contributing meaningfully to the advancement of both ministry and society.",
   ],
-  // SWAP: Choose your own standout quote
   pullQuote:
-    "I don't just manage feeds — I steward stories that honor people, purpose, and the God who writes them.",
+    "Committed to building systems, supporting vision, raising people, and contributing meaningfully to the advancement of both ministry and society.",
 };
 
 export const services = [
   {
-    title: "Social Media Strategy",
+    title: "Youth Development",
     description:
-      "Research-driven plans that align content with your voice, audience, and long-term goals.",
-    icon: "target" as const,
+      "Mobilizing and empowering young people through ENGN and related initiatives — raising leaders who carry revival, responsibility, and social impact into society.",
+    icon: "users" as const,
   },
   {
-    title: "Content Creation",
+    title: "Administrative Leadership",
     description:
-      "Scroll-stopping visuals and copy crafted for clarity, consistency, and cultural relevance.",
-    icon: "pen" as const,
-  },
-  {
-    title: "Brand Building",
-    description:
-      "Cohesive identity systems that make your presence recognizable, trusted, and memorable.",
+      "Strategic coordination, logistics, and operational support within ministry and humanitarian structures — building systems that help vision move with excellence.",
     icon: "layers" as const,
   },
   {
-    title: "Community Management",
+    title: "Humanitarian & Outreach",
     description:
-      "Thoughtful engagement that turns followers into a community — responsive, human, and on-brand.",
-    icon: "users" as const,
+      "Contributing to outreach operations and humanitarian projects focused on community transformation, service, and meaningful impact within and outside Nigeria.",
+    icon: "target" as const,
+  },
+  {
+    title: "Media & Communication",
+    description:
+      "Supporting media initiatives, communication strategy, and organizational engagement that amplify message, mission, and kingdom advancement.",
+    icon: "pen" as const,
   },
 ] as const;
 

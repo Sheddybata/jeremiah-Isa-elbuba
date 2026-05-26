@@ -21,12 +21,12 @@ export default function Work() {
             What I Do
           </p>
           <h2 className="font-serif text-4xl tracking-tight text-ink md:text-5xl lg:text-6xl">
-            Crafting presence
+            Leading with purpose
             <span className="text-accent">.</span>
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-ink/70">
-            Strategy, storytelling, and community — delivered with clarity and
-            care for brands that want to be heard, not just seen.
+            Youth empowerment, administration, outreach, and media — committed
+            to building people, supporting vision, and advancing kingdom impact.
           </p>
         </div>
 

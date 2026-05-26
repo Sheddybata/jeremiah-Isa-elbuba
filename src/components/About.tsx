@@ -1,5 +1,5 @@
 import AnimatedSection from "@/components/AnimatedSection";
-import { aboutContent, images, siteConfig } from "@/lib/content";
+import { aboutContent, images } from "@/lib/content";
 import Image from "next/image";
 
 export default function About() {
@@ -59,22 +59,9 @@ export default function About() {
           </h2>
 
           <div className="mt-10 space-y-6 text-base leading-relaxed text-ink/70 md:text-lg">
-            <p>{aboutContent.bio[0]}</p>
-            <p>
-              I am the son of Prophet Isa El-Buba, founder of{" "}
-              <a
-                href={siteConfig.ebomiUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-ink underline decoration-accent/40 underline-offset-4 transition-colors hover:text-accent"
-              >
-                El-Buba Outreach Ministries International (EBOMI)
-              </a>{" "}
-              in Jos, Nigeria. That legacy shaped how I see purpose: work with
-              excellence, lead with humility, and never separate calling from
-              craft.
-            </p>
-            <p>{aboutContent.bio[2]}</p>
+            {aboutContent.bio.map((paragraph) => (
+              <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+            ))}
           </div>
 
           <blockquote className="mt-12 border-l-2 border-accent pl-6">
