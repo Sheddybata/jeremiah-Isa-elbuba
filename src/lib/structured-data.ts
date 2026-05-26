@@ -17,7 +17,7 @@ export function getStructuredData() {
     email: siteConfig.email,
     jobTitle: "Administrator & Youth Leader",
     description: siteConfig.description,
-    image: `${siteConfig.domain}${siteConfig.logo}`,
+    image: `${siteConfig.domain}/jay2.jpeg`,
     sameAs: [
       ...socialLinks.map((link) => link.href),
       siteConfig.ebomiUrl,

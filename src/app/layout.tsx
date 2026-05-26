@@ -4,6 +4,8 @@ import "./globals.css";
 import { siteConfig } from "@/lib/content";
 import { getSeoKeywords, getStructuredData } from "@/lib/structured-data";
 
+const ogImage = `${siteConfig.domain}/jay2.jpeg`;
+
 const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-fraunces",
@@ -42,9 +44,9 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: "/jerryisa.jpg",
+        url: ogImage,
         width: 1200,
-        height: 630,
+        height: 1200,
         alt: `${siteConfig.name} — Official Website`,
       },
     ],
@@ -53,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    images: ["/jerryisa.jpg"],
+    images: [ogImage],
   },
   robots: {
     index: true,

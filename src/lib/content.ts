@@ -26,6 +26,7 @@ export const navLinks = [
 export const images = {
   heroPortrait: "/jay2.jpeg",
   heroPortraitSecondary: "/jey.jpeg",
+  ogImage: "/jay2.jpeg",
   aboutPortrait: "/jerry.jpg",
   aboutPortraitSecondary: "/jerry2.jpg",
   aboutPortraitBeside: "/538725244_749977361143320_6380781666643499770_n.jpg",
