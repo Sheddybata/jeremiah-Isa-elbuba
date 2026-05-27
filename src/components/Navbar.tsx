@@ -24,6 +24,27 @@ export default function Navbar() {
     };
   }, [menuOpen]);
 
+  const scrollToSection = (href: string) => {
+    setMenuOpen(false);
+
+    window.setTimeout(() => {
+      if (href === "#" || href === "#hero") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
+      const id = href.replace("#", "");
+      const target = document.getElementById(id);
+      target?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 150);
+  };
+
+  const handleNavClick =
+    (href: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault();
+      scrollToSection(href);
+    };
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
@@ -40,7 +61,7 @@ export default function Navbar() {
           href="#"
           className="inline-flex transition-opacity hover:opacity-80"
           aria-label="Jeremiah El-Buba — home"
-          onClick={() => setMenuOpen(false)}
+          onClick={handleNavClick("#")}
         >
           <Logo priority size="lg" />
         </a>
@@ -51,6 +72,7 @@ export default function Navbar() {
               <a
                 href={link.href}
                 className="nav-link group relative text-sm font-medium tracking-wide text-ink/80 transition-colors hover:text-ink"
+                onClick={handleNavClick(link.href)}
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
@@ -87,7 +109,7 @@ export default function Navbar() {
                   <a
                     href={link.href}
                     className="block border-b border-black/5 py-3 text-base font-medium text-ink/80 transition-colors hover:text-accent"
-                    onClick={() => setMenuOpen(false)}
+                    onClick={handleNavClick(link.href)}
                   >
                     {link.label}
                   </a>
