@@ -9,6 +9,7 @@ export const siteConfig = {
   logo: "/logo.png",
   email: "jeremiahisaelbuba@gmail.com",
   ebomiUrl: "https://www.ebomi.org/",
+  formspreeFormId: "mredodae",
   tagline: "Leader. Administrator. Kingdom Visionary.",
   description:
     "Official website of Prince Jeremiah Isa El-Buba (Jerry Isa El-Buba, Jerry El-Buba) — young Nigerian leader, administrator, and author passionate about youth development, humanitarian impact, and kingdom advancement through EBOMI.",

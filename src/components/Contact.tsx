@@ -15,45 +15,90 @@ const socialIconMap = {
   whatsapp: WhatsAppIcon,
 } as const;
 
-const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID;
+type FormStatus = "idle" | "submitting" | "success" | "error";
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState("");
+  const [formStatus, setFormStatus] = useState<FormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [formKey, setFormKey] = useState(0);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setError("");
+    setFormStatus("submitting");
+    setErrorMessage("");
 
-    if (!formspreeId) {
-      setError(
+    const formId =
+      process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID?.trim() ||
+      siteConfig.formspreeFormId;
+
+    if (!formId) {
+      setFormStatus("error");
+      setErrorMessage(
         "Contact form is not configured yet. Email jeremiahisaelbuba@gmail.com directly."
       );
       return;
     }
 
-    setSubmitting(true);
+    const form = event.currentTarget;
 
     try {
-      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
+      const formData = new FormData(form);
+      formData.set("_subject", "New message from jeremiahelbuba.me");
+
+      const response = await fetch(`https://formspree.io/f/${formId}`, {
         method: "POST",
-        body: new FormData(event.currentTarget),
+        body: formData,
         headers: {
           Accept: "application/json",
         },
       });
 
-      if (response.ok) {
-        setSubmitted(true);
-        event.currentTarget.reset();
-      } else {
-        setError("Something went wrong. Please try again or email directly.");
+      let data: { ok?: boolean; error?: string; errors?: { message: string }[] } =
+        {};
+      try {
+        data = await response.json();
+      } catch {
+        data = {};
       }
+
+      if (response.ok || data.ok) {
+        setFormStatus("success");
+        setFormKey((current) => current + 1);
+        return;
+      }
+
+      const detail =
+        data.error ||
+        data.errors?.map((entry) => entry.message).join(". ") ||
+        "";
+
+      if (response.status === 403) {
+        setFormStatus("error");
+        setErrorMessage(
+          detail ||
+            "This domain is not allowed on Formspree yet. In your Formspree form settings, add jeremiahelbuba.me under Allowed Domains (or turn off domain restriction)."
+        );
+        return;
+      }
+
+      if (response.status === 404) {
+        setFormStatus("error");
+        setErrorMessage(
+          "Form not found. Check that NEXT_PUBLIC_FORMSPREE_FORM_ID is correct in Vercel and redeploy."
+        );
+        return;
+      }
+
+      setFormStatus("error");
+      setErrorMessage(
+        detail ||
+          "Something went wrong. Please try again or email jeremiahisaelbuba@gmail.com directly."
+      );
     } catch {
-      setError("Something went wrong. Please try again or email directly.");
-    } finally {
-      setSubmitting(false);
+      setFormStatus("error");
+      setErrorMessage(
+        "Network error. Please try again or email jeremiahisaelbuba@gmail.com directly."
+      );
     }
   };
 
@@ -101,6 +146,7 @@ export default function Contact() {
         </ul>
 
         <form
+          key={formKey}
           onSubmit={handleSubmit}
           className="mx-auto mt-16 max-w-xl space-y-5 text-left"
           aria-label="Contact form"
@@ -145,23 +191,23 @@ export default function Contact() {
           </div>
           <button
             type="submit"
-            disabled={submitting}
+            disabled={formStatus === "submitting"}
             className="w-full bg-accent px-8 py-3.5 text-sm font-medium tracking-wide text-white transition-transform hover:-translate-y-0.5 hover:bg-accent-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
           >
-            {submitting ? "Sending..." : "Send message"}
+            {formStatus === "submitting" ? "Sending..." : "Send message"}
           </button>
-          {submitted && (
-            <p className="text-sm text-ink/70" role="status">
-              Thank you — your message has been sent. Jeremiah will be in touch
-              soon.
-            </p>
-          )}
-          {error && (
-            <p className="text-sm text-accent" role="alert">
-              {error}
-            </p>
-          )}
         </form>
+        {formStatus === "success" && (
+          <p className="mx-auto mt-4 max-w-xl text-left text-sm text-ink/70" role="status">
+            Thank you — your message has been sent. Jeremiah will be in touch
+            soon.
+          </p>
+        )}
+        {formStatus === "error" && errorMessage && (
+          <p className="mx-auto mt-4 max-w-xl text-left text-sm text-accent" role="alert">
+            {errorMessage}
+          </p>
+        )}
       </div>
     </AnimatedSection>
   );
