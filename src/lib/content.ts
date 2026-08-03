@@ -19,9 +19,44 @@ export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Work", href: "#work" },
   { label: "Faith", href: "#faith" },
+  { label: "Videos", href: "#videos" },
   { label: "Book", href: "#book" },
   { label: "Contact", href: "#contact" },
 ] as const;
+
+/** YouTube library — paste full watch URLs or bare video IDs. */
+export const videoContent = {
+  eyebrow: "Watch",
+  title: "Messages & media",
+  description:
+    "Talks, interviews, and highlights from ministry, leadership, and public life.",
+  /** Optional link to a full YouTube channel or playlist */
+  channelUrl: "",
+  videos: [
+    {
+      youtubeId: "_VhyO-iMQKQ",
+      title:
+        "Building High-Performance Teams Through Servant Leadership | Business & Leadership Summit 2026",
+    },
+    {
+      youtubeId: "5EtEAIHdJ3w",
+      title:
+        "REALITY CHECK WITH JEREMIAH ISA EL-BUBA AND DIVINE JOY CHINECHEREM  EP. 2",
+    },
+    {
+      youtubeId: "wG1_5RB_vP8",
+      title: "REALITY CHECK WITH JEREMIAH ISA EL-BUBA EP. 1",
+    },
+    {
+      youtubeId: "UzHrtRd1hIw",
+      title: "I AM NOTHING WITHOUT JESUS || 20.12.2024",
+    },
+  ] as Array<{
+    youtubeId: string;
+    title: string;
+    description?: string;
+  }>,
+};
 
 // Portrait photos in /public
 export const images = {
@@ -82,20 +117,45 @@ export const faithContent = {
     "Growing up in a home anchored in ministry taught me that faith is lived daily — not performed on Sundays. I carry that same posture into my work: listening first, serving faithfully, and trusting that excellence itself can be an act of worship.",
 };
 
-export const bookContent = {
-  title: "Called for It but Late to the Conversation",
-  hook: "Have you ever felt like you missed your chance?",
-  coverImage: "/book.jpg",
-  buyUrl: "https://selar.com/0057965988",
-  body: [
-    "Like time passed you by… and it's too late to step into what God called you to do? That's exactly what this book is about.",
-    "From Moses who spent 40 years in the wilderness, to Jonah who ran away from God's will, to Peter who denied Jesus, the Bible is filled with people who seemed late to their calling — yet God still used them.",
-    "This book is a conversation with you, the dreamer who wonders if it's too late. It's for the believer battling regret, or the one questioning if God can still use them.",
-    "This isn't just another Christian book. It's an invitation to hope, restoration, and finishing strong — no matter when you start.",
-  ],
-  highlight:
-    "Delay is not denial. If you're still breathing, God is still writing your story.",
-};
+export const books = [
+  {
+    volume: "Part One",
+    title: "Called for It but Late to the Conversation",
+    hook: "Have you ever felt like you missed your chance?",
+    coverImage: "/book.jpg",
+    buyUrl: "https://selar.com/0057965988",
+    body: [
+      "Like time passed you by… and it's too late to step into what God called you to do? That's exactly what this book is about.",
+      "From Moses who spent 40 years in the wilderness, to Jonah who ran away from God's will, to Peter who denied Jesus, the Bible is filled with people who seemed late to their calling — yet God still used them.",
+      "This book is a conversation with you, the dreamer who wonders if it's too late. It's for the believer battling regret, or the one questioning if God can still use them.",
+      "This isn't just another Christian book. It's an invitation to hope, restoration, and finishing strong — no matter when you start.",
+    ],
+    highlight:
+      "Delay is not denial. If you're still breathing, God is still writing your story.",
+  },
+  {
+    volume: "Part Two",
+    title: "A New Level",
+    subtitle: "Called For It, Late to the Conversation – Part Two",
+    hook: "What happens after the waiting is over?",
+    coverImage: "/a-new-level-called-for-it-selar.com-6a63631429506.png",
+    buyUrl: "https://selar.com/2f3918x987",
+    body: [
+      "What happens when the doors you've prayed for finally open? Called For It, Late to the Conversation – Part Two: A New Level is a compelling guide for anyone stepping into a new season of purpose, leadership, influence, or responsibility. While many books teach you how to reach the next level, this book reveals what it takes to remain there.",
+      "Through powerful biblical truths, practical wisdom, and personal reflections, Jeremiah Isa El-Buba explores the realities of growth, the weight of greater responsibility, the importance of character, the value of preparation, and the courage required to keep becoming all that God has called you to be.",
+      "This is more than a book about success, it is a call to transformation. It challenges readers to move beyond chasing opportunities and to embrace the process of becoming the kind of person who can faithfully steward them.",
+      "Whether you are entering a new chapter in your faith, career, ministry, business, or personal life, A New Level will inspire you to embrace God's process, overcome new challenges, and walk boldly into your divine assignment. Because every new level demands a new you.",
+    ],
+    highlight:
+      "The delay is over. The door is open. Welcome to your next level.",
+  },
+] as const;
+
+/** Latest release — used in hero and promo banner */
+export const featuredBook = books[1];
+
+/** @deprecated Use books[0] — kept for backwards compatibility */
+export const bookContent = books[0];
 
 export const galleryImages = [
   {

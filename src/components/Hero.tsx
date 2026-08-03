@@ -1,6 +1,6 @@
 "use client";
 
-import { bookContent, images, siteConfig } from "@/lib/content";
+import { featuredBook, images, siteConfig } from "@/lib/content";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 
@@ -51,7 +51,7 @@ export default function Hero() {
                 Get in touch
               </a>
               <a
-                href={bookContent.buyUrl}
+                href={featuredBook.buyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center border border-ink/15 px-8 py-3.5 text-sm font-medium tracking-wide text-ink transition-colors hover:border-accent hover:text-accent"

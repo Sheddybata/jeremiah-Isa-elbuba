@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import Gallery from "@/components/Gallery";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import Videos from "@/components/Videos";
 import Work from "@/components/Work";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
         <About />
         <Work />
         <Faith />
+        <Videos />
         <BookPromo />
         <Book />
         <Gallery />

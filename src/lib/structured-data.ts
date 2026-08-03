@@ -1,4 +1,24 @@
-import { bookContent, siteConfig, socialLinks } from "./content";
+import { books, siteConfig, socialLinks } from "./content";
+
+function buildBookSchema(book: (typeof books)[number]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    name: book.title,
+    author: {
+      "@type": "Person",
+      name: siteConfig.name,
+    },
+    url: book.buyUrl,
+    image: `${siteConfig.domain}${book.coverImage}`,
+    description: book.highlight,
+    offers: {
+      "@type": "Offer",
+      url: book.buyUrl,
+      availability: "https://schema.org/InStock",
+    },
+  };
+}
 
 export function getStructuredData() {
   const personSchema = {
@@ -58,25 +78,11 @@ export function getStructuredData() {
     },
   };
 
-  const bookSchema = {
-    "@context": "https://schema.org",
-    "@type": "Book",
-    name: bookContent.title,
-    author: {
-      "@type": "Person",
-      name: siteConfig.name,
-    },
-    url: bookContent.buyUrl,
-    image: `${siteConfig.domain}${bookContent.coverImage}`,
-    description: bookContent.highlight,
-    offers: {
-      "@type": "Offer",
-      url: bookContent.buyUrl,
-      availability: "https://schema.org/InStock",
-    },
-  };
-
-  return [personSchema, websiteSchema, bookSchema];
+  return [
+    personSchema,
+    websiteSchema,
+    ...books.map(buildBookSchema),
+  ];
 }
 
 export function getSeoKeywords() {
@@ -95,6 +101,7 @@ export function getSeoKeywords() {
     "Prophet Isa El-Buba son",
     "youth leader Nigeria",
     "Called for It but Late to the Conversation",
+    "A New Level Jeremiah El-Buba",
     "Jos Nigeria",
   ];
 }
